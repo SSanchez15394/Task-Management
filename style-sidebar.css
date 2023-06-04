@@ -1,0 +1,71 @@
+.col-sidebar {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px;
+    width: 200px;
+    position: absolute;
+    left: 0;
+    height: 200vh;
+}
+
+.col-content {
+    margin-left: 170px;
+    min-width: 135%;
+    width: auto;
+}
+
+.nav-link {
+    color: #fff;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    /* Mover el perfil al final del sidebar */
+}
+
+.profile-image {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.dropdown-toggle::after {
+    display: none;
+    /* Ocultar el icono de desplegable */
+}
+
+.card-body {
+    background-color: #ffeeba;
+    /* Cambia el color de fondo a amarillo pastel */
+}
+
+/* Estilos para la ventana modal */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    z-index: 1040;
+}
+
+.modal {
+    z-index: 1050 !important;
+}
+
+/* Estilos adicionales para solucionar el problema de interactividad */
+.modal-open {
+    overflow: hidden;
+}
+
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.modal {
+    z-index: 1050 !important;
+}
+
+.modal-backdrop {
+    z-index: 1040 !important;
+}

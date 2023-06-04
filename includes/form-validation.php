@@ -1,7 +1,9 @@
 <?php
+$errorMessage = ""; // Define la variable $errorMessage vacía al principio
+
 if (!empty($_POST['email'])) {
-    if (empty($_POST['email'])) {
-        echo "rellena los campos";
+    if (empty($_POST['email']) || empty($_POST['contrasenia'])) {
+        $errorMessage = "Rellena los campos";
     } else {
         session_start();
         include('./database/db.php');
@@ -23,17 +25,25 @@ if (!empty($_POST['email'])) {
         // Buscamos el usuario y contraseña en nuestra BBDD
         $sql = "SELECT * FROM usuarios WHERE email = '$email'";
         $result = mysqli_query($conexion, $sql);
+
         // Verificamos que se encontró un usuario
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_assoc($result);
 
             // Verificamos que la contraseña introducida coincida con la contraseña encriptada en la BBDD
-            if (password_verify($contrasenia, $row['contrasenia'])) {
-                // Damos acceso al usuario
-                header('location:index.php');
+            if (!password_verify($contrasenia, $row['contrasenia'])) {
+                $errorMessage = '<script>
+                swal({
+                    title: "Error",
+                    text: "El email o la contraseña son incorrectos.",
+                    icon: "error"
+                });
+            </script>';;
             } else {
-                $errorMessage = 'Email o contraseñas incorrectos. Por favor revísa los campos.';
+                header("Location: home.php");
+                exit();
             }
+
             // Cerramos la conexión a la BBDD
             mysqli_close($conexion);
         }

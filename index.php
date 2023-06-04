@@ -1,80 +1,76 @@
-<?php include("./database/db.php") ?>
-<?php include("includes/header.php") ?>
-<link rel="stylesheet" href="./style-index.css">
-<?php session_start(); ?>
-<div class="p-4">
-	<div class="row">
-		<div class="col-md-4 mb-4">
-			<div class="card card-body">
-				<form action="save.php" method="POST">
-					<div class="form-group">
-						<input type="text" name="title" class="form-control" placeholder="Añade nueva tarea" autofocus required>
-					</div>
-					<div class="form-group">
-						<textarea name="description" rows="2" class="form-control" placeholder="Descripción" required></textarea>
-					</div>
-					<input type="submit" class="btn btn-primary btn-block" name="save_task" value="Guardar">
+<!DOCTYPE html>
+<html lang="es">
 
-					<?php if (isset($_SESSION['message'])) { ?>
-						<div class="alert alert-<?= $_SESSION['message_type'] ?> alert-dismissible fade show mt-2" role="alert">
-							<?= $_SESSION['message'] ?>
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style-login.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Iniciar sesión</title>
+</head>
 
-					<?php session_unset();
-					} ?>
-				</form>
-			</div>
-			<div class="card mt-2">
-				<div class="card-header">
-					Tareas pendientes:
-				</div>
-				<div class="alert-warning card-body">
-					<?php
-					$query = "SELECT * FROM tareas";
-					$resultado = mysqli_query($conn, $query);
-					?>
+<body>
 
-					<h3 class="text-center"><?php echo $resultado->num_rows; ?></h3>
-				</div>
-			</div>
-		</div>
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Acceso:</h3>
+                </div>
+                <div class="card-body">
+                    <form action="./index.php" method="post" autocomplete="on">
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Email" style="min-width:180px" required>
+                        </div>
+                        <div class="input-group form-group pt-1">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" name="contrasenia" id="contrasenia" class="form-control" placeholder="Contraseña" required>
+                        </div>
+                        <div class="form-group pb-5 pt-1">
+                            <button type="submit" name="submit" class="btn float-right login_btn" id="submit">Acceso</button>
+                        </div>
+                        <?php include('./includes/form-validation.php'); ?>
+                        <span class="error-message text-danger"><?php if (isset($errorMessage)) { echo $errorMessage;  } ?></span>
 
-		<div class="col-md-8">
-			<table class="table table-bordered">
-				<thead class="bg-warning">
-					<tr>
-						<th>ID</th>
-						<th>TAREA</th>
-						<th>DESCRIPCIÓN</th>
-						<th>OPCIONES</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php
-					$query = "SELECT * FROM tareas";
-					$result_tasks = mysqli_query($conn, $query);
-					while ($row = mysqli_fetch_array($result_tasks)) { ?>
-						<div>
-							<tr>
-								<td class="file"><?php echo $row['id_tarea']; ?></td>
-								<td class="file"><?php echo $row['title']; ?></td>
-								<td class="file"><?php echo $row['description']; ?></td>
 
-								<td class="file">
-									<div class="d-flex justify-content-center align-center">
-										<a href="edit.php?id=<?php echo $row['id_tarea'] ?>" class="btn btn-info mr-1"><i class="fa fa-marker"></i></a>
-										<a href="check.php?id=<?php echo $row['id_tarea'] ?>" class="btn btn-success mr-1"><i class="fas fa-check"></i></a>
-										<a href="delete.php?id=<?php echo $row['id_tarea'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
-									</div>
-								</td>
-							</tr>
-						</div>
-					<?php } ?>
-				</tbody>
-			</table>
-		</div>
-	</div>
-</div>
+                    </form>
+                </div>
+
+
+                <div class="card-footer pb-5">
+                    <div class="d-flex justify-content-center links">
+                        ¿No tienes una cuenta?
+                        <a href="./new-user.php">Regístrate</a>
+                    </div>
+
+                    <div class="or-line-container">
+                        <hr class="or-line ml-3 ">
+                        <div class="or-text">o</div>
+                        <hr class="or-line mr-3">
+                    </div>
+
+                    <?php require('autentificacion.php'); ?>
+                    <div class="google-login-button">
+                        <a href="<?php echo $client->createAuthUrl(); ?> ">
+                            <img class="google-logo" src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png" alt="Google Logo">
+                            Accede con Google</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

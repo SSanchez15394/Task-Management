@@ -2,7 +2,7 @@
 
 html,
 body {
-    background-image: url(./assets/img/background.png);
+    background-image: url(./assets/img/./task-list2.png);
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
@@ -15,11 +15,11 @@ body {
 }
 
 .card {
-    height: 370px;
-    margin-top: auto;
+    height: 450px;
+    margin-top: 200px;
     margin-bottom: auto;
     width: 400px;
-    background-color: rgba(0, 0, 0, 0.5) !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
 }
 
 .social_icon span {
@@ -53,7 +53,6 @@ body {
 input:focus {
     outline: 0 0 0 0 !important;
     box-shadow: 0 0 0 0 !important;
-
 }
 
 .remember {
@@ -70,7 +69,7 @@ input:focus {
 .login_btn {
     color: black;
     background-color: #FFC312;
-    width: 100px;
+    width: 100%;
 }
 
 .login_btn:hover {
@@ -95,4 +94,57 @@ input:focus {
     margin-left: 10px;
     margin-top: 5px;
     max-width: calc(100% - 140px);
+}
+
+.google-login-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.google-login-button a {
+
+    background-color: #fff;
+    color: #737373;
+    border: 1px solid #dcdcdc;
+    border-radius: 9px;
+    padding: 10px 15px;
+    font-family: 'Numans', sans-serif;
+    font-size: 14px;
+    font-weight:bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.google-login-button a:hover {
+    background-color: #f8f8f8;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.google-logo {
+    background-image: url("./assets/img/google.png");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.or-line-container {
+  display: flex;
+  align-items: center;
+}
+
+.or-line {
+  flex-grow: 1;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.or-text {
+  margin: 0 10px;
+  color: #999;
+  font-size: 14px;
+  font-weight: bold;
 }

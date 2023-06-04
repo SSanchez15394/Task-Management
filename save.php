@@ -1,23 +1,23 @@
 <?php
-session_start();
-include("./database/db.php");
+    // Incluye el archivo de conexión a la base de datos
+    include("./database/db.php");
 
-if (isset( $_POST['save_task'] )) {
-    $title = $_POST['title'];    
-    $description = $_POST['description'];
+    // Procesar los datos del formulario cuando se envíe
+    if (isset($_POST['submit'])) {
+        $title = $_POST['tarea'];
+        $description = $_POST['descripcion'];
 
-    $query = "INSERT INTO tareas (title, description) VALUES (?, ?)";
-    $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, "ss", $title, $description);
-    $result = mysqli_stmt_execute($stmt);
+        // Realiza la inserción en la base de datos
+        $query = "INSERT INTO tareas (title, description) VALUES (?, ?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ss", $title, $description);
+        $result = $stmt->execute();
 
-    if (!$result){
-        die("Consulta fallida");
+        if (!$result){
+            die("Consulta fallida");
+        }
+
+        // Mostrar un mensaje de éxito
+        echo '<div class="alert alert-success mt-4">Tarea guardada con éxito</div>';
     }
-
-    $_SESSION['message'] = 'Tarea guardada con exito';
-    $_SESSION['message_type'] = 'warning';
-
-    header("Location: index.php");
-}
-?>
+    ?>
