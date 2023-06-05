@@ -1,0 +1,59 @@
+        html,
+        body {
+            background-size: cover;
+            background-repeat: repeat;
+            height: 100%;
+            font-family: 'Numans', sans-serif;
+                        border-radius: 10px;
+
+        }
+
+        .container {
+            height: 100%;
+            align-content: center;
+            margin-left: 100px;
+            border-radius: 10px;
+
+        }
+
+        .card-header h3 {
+            color: dark;
+            border-radius: 100px;
+
+        }
+
+        .card-footer {
+            background: rgb(166,217,228);
+            background: radial-gradient(circle, rgba(166,217,228,1) 0%, rgba(148,187,233,1) 100%);
+        }
+
+        .login_btn {
+            color: whitesmoke;
+            background-color: rgb(85, 65, 157);
+            width: 100%;
+        }
+
+        a {
+            color: rgb(85, 65, 157);
+        }
+
+        a:hover {
+            color: rgb(153, 106, 171);
+        }
+
+        .login_btn:hover {
+            color: black;
+            background-color: white;
+        }
+
+        .links {
+            color: white;
+        }
+
+        .links a {
+            margin-left: 4px;
+        }
+
+        .button-container {
+            position: relative;
+        }

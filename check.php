@@ -2,54 +2,40 @@
 include("./database/db.php");
 session_start();
 
+
 if (isset($_GET['id'])) {
-	$id = $_GET['id'];
-	$query = "SELECT * FROM tareas WHERE id_tarea = $id";
-	$result = mysqli_query($conn, $query);
+    $id = $_GET['id'];
 
-	if (!$result) {
-		die("Consulta fallida");
-	}
+    if (isset($_POST['done'])) {
+        $query = "DELETE FROM tareas WHERE id_tarea = $id";
+        $result = mysqli_query($conn, $query);
 
-	if (mysqli_num_rows($result) == 1) {
-		$row = mysqli_fetch_array($result);
-		$title = $row['title'];
-		$description = $row['description'];
-	}
+        if (!$result) {
+            die("Consulta fallida");
+        }
 
-	if (isset($_POST['done'])) {
-		echo "HECHO!";
-
-		$query = "DELETE FROM tareas WHERE id_tarea = $id";
-		$result = mysqli_query($conn, $query);
-
-		if (!$result) {
-			die("No se pudo eliminar");
-		}
-
-		$_SESSION['message'] = "Tarea finalizada!";
-		$_SESSION['message_type'] = "success";
-		header("location: index.php");
-	}
+        $_SESSION['message'] = 'Tarea completada.';
+        $_SESSION['message_type'] = 'success';
+        header('Location: tareas.php');
+    }
 }
-
 ?>
-<?php include("includes/header.php"); ?>
-<style>
-	body {
-		background-color: #e9ebef;
-	}
-</style>
-<div class="row p-5">
-	<div class="mx-auto card" style="background-color: #FFF2CD;">
-		<h1 class="card-header bg-warning"><?php echo $title; ?></h1>
-		<div class="card-body">
-			<h5 class="card-title">Descripción: </h5>
-			<form action="check.php?id=<?php echo $_GET['id']; ?>" method="POST">
-				<p class="card-text"><?php echo $description; ?></p>
-				<p class="card-text">¿Seguro que terminaste?</p>
-				<button class="btn btn-success btn-block" name="done">¡Si!</button>
-			</form>
-		</div>
-	</div>
-</div>
+
+<script>
+    // Desvanecer gradualmente el mensaje de éxito
+    setTimeout(function() {
+        var successMessage = document.querySelector('.alert-success');
+        if (successMessage) {
+            var opacity = 1;
+            var interval = setInterval(function() {
+                if (opacity <= 0) {
+                    clearInterval(interval);
+                    successMessage.remove();
+                } else {
+                    successMessage.style.opacity = opacity;
+                    opacity -= 0.1;
+                }
+            }, 200);
+        }
+    }, 3000);
+</script>
