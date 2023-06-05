@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="./style-sidebar.css">
+    <link rel="stylesheet" href="./style-home.css">
     <title>Task-Management</title>
 </head>
 
@@ -39,14 +39,6 @@
                 </li>
                 <li class="nav-item dropdown">
                 </li>
-                <li class="nav-item">
-                    <form id="searchForm" action="search.php" method="POST" class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2 ml-3" type="text" name="keyword" placeholder="Buscar...">
-                        <button type="submit">Buscar</button>
-                    </form>
-                </li>
-                <div id="searchResults"></div>
-
             </ul>
         </div>
         <div class="dropdown mr-2">
@@ -119,7 +111,7 @@
                 </div>
 
                 <!-- Modal para añadir nueva tarea -->
-                <button class="btn btn-primary mt-4" data-toggle="modal" data-target="#addTaskModal"><i class="fa-solid fa-circle-plus"></i> Añadir nueva tarea</button>
+                <button id="añadirTarea" class="btn btn-primary mt-4" data-toggle="modal" data-target="#addTaskModal"><i class="fa-solid fa-circle-plus"></i> Añadir nueva tarea</button>
                 <div class="modal fade" id="addTaskModal" tabindex="-1" role="dialog" aria-labelledby="addTaskModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">

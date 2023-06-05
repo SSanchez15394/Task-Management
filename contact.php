@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="./style-sidebar.css">
+    <link rel="stylesheet" href="./style-home.css">
     <link rel="stylesheet" href="./style-contact.css">
     <title>Task-Management</title>
 </head>
@@ -106,7 +106,7 @@
                             </div>
                             <div class="modal-body">
                                 <!-- Formulario para procesar los datos -->
-                                <form method="POST" action="tareas.php">
+                                <form method="POST" action="contact.php">
                                     <div class="form-group text-dark">
                                         <label for="tarea">Tarea</label>
                                         <input type="text" class="form-control" id="tarea" name="tarea" placeholder="Tarea">
@@ -242,14 +242,15 @@
 
                             <div class="card-footer">
                                 <h6>Datos de contacto</h6>
-                            
+
                                 <p></p><i class="fa-regular fa-calendar-days"></i> Horario: Lunes a viernes: 9:00 – 18:00 h</p>
-                                <p><i class="fa-solid fa-phone"></i> Teléfono 
+                                <p><i class="fa-solid fa-phone"></i> Teléfono
                                     <a href="tel:+34918109200">+34 918 109 200</a>
                                 <p><i class="fa-solid fa-location-dot"></i><a href="https://goo.gl/maps/7kCua5R3KrZgWCaaA" target="_blank"> Ubicación</a></p>
-
                             </div>
-
+                            <footer class="footer" style="text-align: center;">
+                                <p>&copy; Task-Management 2022-2023</p>
+                            </footer>
 
 
                         </div>

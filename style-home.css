@@ -34,10 +34,7 @@ body {
     display: none;
 }
 
-#pendientes {
-    background: rgb(242,242,242);
-    background: radial-gradient(circle, rgba(242,242,242,1) 0%, rgba(70,158,252,1) 100%);
-}
+
 .card-header {
 background-color: #343a40;
 }
@@ -84,5 +81,4 @@ thead {
 th{
     text-align: center;
 }
-
 

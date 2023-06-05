@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-	<link rel="stylesheet" href="./style-sidebar.css">
+	<link rel="stylesheet" href="./style-home.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
@@ -42,14 +42,6 @@
 				</li>
 				<li class="nav-item dropdown">
 				</li>
-				<li class="nav-item">
-					<form id="searchForm" action="search.php" method="POST" class="form-inline my-2 my-lg-0">
-						<input class="form-control mr-sm-2 ml-3" type="text" name="keyword" placeholder="Buscar...">
-						<button type="submit">Buscar</button>
-					</form>
-				</li>
-				<div id="searchResults"></div>
-
 			</ul>
 		</div>
 
@@ -116,7 +108,7 @@
 						</div>
 						<div class="modal-body">
 							<!-- Formulario para procesar los datos -->
-							<form method="POST" action="tareas.php">
+							<form method="POST" action="home.php">
 								<div class="form-group text-dark">
 									<label for="tarea">Tarea</label>
 									<input type="text" class="form-control" id="tarea" name="tarea" placeholder="Tarea">
@@ -244,7 +236,7 @@
 					</div><br>
 					<footer class="footer">
 						<div class="container text-center">
-							<p>&copy; Task-Management 2023 TFG DAW</p>
+							<p>&copy; Task-Management 2022-2023</p>
 						</div>
 					</footer>
 			</div>

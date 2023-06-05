@@ -29,16 +29,8 @@
 
         .login_btn {
             color: whitesmoke;
-            background-color: rgb(85, 65, 157);
+            background-color: rgb(61, 86, 168);
             width: 100%;
-        }
-
-        a {
-            color: rgb(85, 65, 157);
-        }
-
-        a:hover {
-            color: rgb(153, 106, 171);
         }
 
         .login_btn:hover {
@@ -57,3 +49,4 @@
         .button-container {
             position: relative;
         }
+        
