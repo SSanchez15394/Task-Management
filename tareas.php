@@ -8,9 +8,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="./style-home.css">
     <title>Task-Management</title>
 </head>
@@ -48,7 +49,7 @@
             </a>
             <div class="dropdown-menu bg-dark" aria-labelledby="profileDropdown">
                 <a class="dropdown-item text-light" href="./exit.php" onmouseover="$(this).addClass('text-dark')" onmouseout="$(this).removeClass('text-dark')">
-                <i class="fa-solid fa-right-to-bracket"></i> Cerrar sesión
+                    <i class="fa-solid fa-right-to-bracket"></i> Cerrar sesión
                 </a>
             </div>
         </div>
@@ -136,7 +137,7 @@
                                         <h5><label for="etiqueta">Etiqueta:</label></h5>
                                         <select class="form-control" id="etiqueta" name="etiqueta">
                                             <option value="Trabajo">Trabajo</option>
-                                            <option value="Trabajo">Estudios</option>
+                                            <option value="Estudios">Estudios</option>
                                             <option value="Casa">Hogar</option>
                                             <option value="Familia">Familia</option>
                                             <option value="Ocio">Ocio</option>
@@ -157,7 +158,11 @@
             </div>
             <div class="col-9 col-content mt-5">
                 <div class="col-md-8">
-                    <table class="table table-bordered w-100">
+                    <div class="form-floating my-3">
+                        <input type="text" class="form-control" id="search" placeholder="Buscar">
+                        <label for="search"></label>
+                    </div>
+                    <table class="table table-bordered w-100" id="table-search">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -204,7 +209,7 @@
                                                                     <label for="edit-etiqueta">Etiqueta</label>
                                                                     <select class="form-control" id="edit-etiqueta" name="etiqueta">
                                                                         <option value="Trabajo">Trabajo</option>
-                                                                        <option value="Trabajo">Estudios</option>
+                                                                        <option value="Estudios">Estudios</option>
                                                                         <option value="Casa">Casa</option>
                                                                         <option value="Familia">Familia</option>
                                                                         <option value="Ocio">Ocio</option>
@@ -290,9 +295,7 @@
         </div>
     </div>
     <script src="./search.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+
 </body>
 
 </html>
