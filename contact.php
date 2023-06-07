@@ -93,33 +93,32 @@
                     </div>
                 </div>
                 <!-- Modal para añadir nueva tarea -->
-
-                <button class="btn btn-primary mt-4" data-toggle="modal" data-target="#addTaskModal"><i class="fa-solid fa-circle-plus"></i> Añadir nueva tarea</button>
+                <button id="añadirTarea" class="btn btn-primary mt-4" data-toggle="modal" data-target="#addTaskModal"><i class="fa-solid fa-circle-plus"></i> Añadir nueva tarea</button>
                 <div class="modal fade" id="addTaskModal" tabindex="-1" role="dialog" aria-labelledby="addTaskModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header bg-info">
-                                <h1 class="modal-title text-dark" id="addTaskModalLabel">Añadir nueva tarea</h1>
+                                <h2 class="modal-title text-dark" id="addTaskModalLabel">Añadir nueva tarea</h2>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
                                 <!-- Formulario para procesar los datos -->
-                                <form method="POST" action="contact.php">
+                                <form method="POST" action="tareas.php">
                                     <div class="form-group text-dark">
-                                        <label for="tarea">Tarea</label>
+                                        <h5><label for="tarea">Tarea:</label></h5>
                                         <input type="text" class="form-control" id="tarea" name="tarea" placeholder="Tarea">
                                     </div>
                                     <div class="form-group text-dark">
-                                        <label for="descripcion">Descripción</label>
-                                        <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción"></textarea>
+                                        <h5><label for="descripcion">Descripción:</label></h5>
+                                        <h5><textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" maxlength="150"></textarea>
                                     </div>
                                     <div class="form-group text-dark">
-                                        <label for="etiqueta">Etiqueta</label>
+                                        <h5><label for="etiqueta">Etiqueta:</label></h5>
                                         <select class="form-control" id="etiqueta" name="etiqueta">
                                             <option value="Trabajo">Trabajo</option>
-                                            <option value="Trabajo">Estudios</option>
+                                            <option value="Estudios">Estudios</option>
                                             <option value="Casa">Hogar</option>
                                             <option value="Familia">Familia</option>
                                             <option value="Ocio">Ocio</option>
@@ -128,10 +127,13 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary" name="submit">Guardar</button>
                                 </form>
+
                             </div>
+
                         </div>
                     </div>
                 </div>
+
 
                 <?php include('./save.php') ?>
 
@@ -223,31 +225,13 @@
                             <h3>Contacto</h3>
                         </div>
                         <div class="card-body">
-                            <form action="enviar.php" method="post" autocomplete="on">
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend">
-                                    </div>
-                                    <input type="email" name="correo" id="correo" class="form-control" placeholder="Escribe tu email" style="min-width:180px" required>
-                                </div>
-                                <div class="input-group form-group pt-1">
-                                    <div class="input-group-prepend">
-                                    </div>
-                                    <textarea name="mensaje" id="mensaje" class="form-control" placeholder="Escribe lo que quieras..." required></textarea>
-                                </div>
-                                <div class="form-group pb-5 pt-1">
-                                    <button type="submit" name="submit" class="btn float-right login_btn" id="submit">Enviar</button>
-                                </div>
-                            </form>
-
-
-                            <div class="card-footer">
-                                <h6>Datos de contacto</h6>
-
-                                <p></p><i class="fa-regular fa-calendar-days"></i> Horario: Lunes a viernes: 9:00 – 18:00 h</p>
-                                <p><i class="fa-solid fa-phone"></i> Teléfono
-                                    <a href="tel:+34918109200">+34 918 109 200</a>
-                                <p><i class="fa-solid fa-location-dot"></i><a href="https://goo.gl/maps/7kCua5R3KrZgWCaaA" target="_blank"> Ubicación</a></p>
-                            </div>
+                            <h6>Datos de contacto</h6>
+                            <p></p><i class="fa-regular fa-calendar-days"></i> Horario: Lunes a viernes: 9:00 – 18:00 h</p>
+                            <p><i class="fa-solid fa-phone"></i> Teléfono
+                                <a href="tel:+34918109200">+34 918 109 200</a>
+                            <p><i class="fa-solid fa-location-dot"></i><a href="https://goo.gl/maps/7kCua5R3KrZgWCaaA" target="_blank"> Ubicación</a></p>
+                        </div>
+                        <div class="card-footer">
                             <footer class="footer" style="text-align: center;">
                                 <p>&copy; Task-Management 2022-2023</p>
                             </footer>
