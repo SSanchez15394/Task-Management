@@ -20,3 +20,6 @@
         </div>
     </div>
 </div>
+<button type="button" class="btn btn-success mr-1 marcar-completado" data-toggle="modal" data-target="#completadoModal<?php echo $row['id_tarea']; ?>">
+    <i class="fas fa-check"></i>
+</button>

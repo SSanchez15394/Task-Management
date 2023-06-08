@@ -1,4 +1,4 @@
-<!-- MODAL PARA EDITAR TAREA -->
+<!-- Modal para editar tarea -->
 <div class="modal fade" id="editModal<?php echo $row['id_tarea']; ?>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel<?php echo $row['id_tarea']; ?>" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -33,3 +33,6 @@
         </div>
     </div>
 </div>
+<button type="button" class="btn btn-info mr-1" data-toggle="modal" data-target="#editModal<?php echo $row['id_tarea']; ?>">
+    <i class="fa fa-marker"></i>
+</button>

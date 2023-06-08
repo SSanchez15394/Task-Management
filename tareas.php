@@ -142,45 +142,10 @@
                                         <td class="file"><?php echo $row['etiqueta']; ?></td>
                                         <!-- Fila donde estarán los botones de opciones -->
                                         <td class="file">
-                                            <?php include('./modals/editar-tarea.php') ?>
                                             <div class="d-flex justify-content-center align-center">
-                                                <button type="button" class="btn btn-info mr-1" data-toggle="modal" data-target="#editModal<?php echo $row['id_tarea']; ?>">
-                                                    <i class="fa fa-marker"></i>
-                                                </button>
+                                                <?php include('./modals/editar-tarea.php') ?>
                                                 <?php include('./modals/tarea-completada.php') ?>
-                                                <button type="button" class="btn btn-success mr-1 marcar-completado" data-toggle="modal" data-target="#completadoModal<?php echo $row['id_tarea']; ?>">
-                                                    <i class="fas fa-check"></i>
-                                                </button>
-
-
-                                                <!-- MODAL PARA ELIMINAR TAREA -->
-                                                <div class="modal fade" id="deleteModal<?php echo $row['id_tarea']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?php echo $row['id_tarea']; ?>" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header bg-danger">
-                                                                <h2 class="modal-title" id="deleteModalLabel<?php echo $row['id_tarea']; ?>">Eliminar tarea</h2>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <h5>¿Estás seguro de que deseas eliminar esta tarea?</h5>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                                <a href="delete.php?id=<?php echo $row['id_tarea']; ?>" class="btn btn-danger">Eliminar</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?php echo $row['id_tarea']; ?>">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </button>
-
-
-
+                                                <?php include('./modals/eliminar-tarea.php') ?>
                                             </div>
                                         </td>
                                     </tr>
