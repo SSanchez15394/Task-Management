@@ -227,14 +227,14 @@
                         <div class="card-body">
                             <h5>Datos de contacto</h5>
                             <p></p><i class="fa-regular fa-calendar-days"></i> Horario: Lunes a viernes: 9:00 – 18:00 h</p>
-                            <p><i class="fa-solid fa-phone"></i>Teléfono
+                            <p><i class="fa-solid fa-phone"></i>Teléfono:
                                 <a href="tel:+34918109200">+34 918 109 200</a>
                             </p>
-                            <p><i class="fa-solid fa-envelope"></i> Email
+                            <p><i class="fa-solid fa-envelope"></i> Email:
                             <a href="mailto:info@UAX.es">info@UAX.es</a>
                                 
                             </p>
-                            <p><i class="fa-solid fa-location-dot"></i> Ubicación</a></p>
+                            <p><i class="fa-solid fa-location-dot"></i> Ubicación:</a></p>
                             <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3" style="height: 300px;">
                                 <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>
                                 <script>
