@@ -134,92 +134,12 @@
                     </div>
                 </div>
 
-
                 <?php include('./save.php') ?>
 
             </div>
             <div class="col-9 col-content mt-5" style="align-items: center;">
                 <div class="col-md-8">
                     <table class="table table-bordered w-100">
-                        <!-- MODAL PARA EDITAR TAREA -->
-                        <div class="modal fade" id="editModal<?php echo $row['id_tarea']; ?>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel<?php echo $row['id_tarea']; ?>" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="editModalLabel<?php echo $row['id_tarea']; ?>">Editar tarea</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="edit.php?id=<?php echo $row['id_tarea']; ?>" method="POST">
-                                            <div class="form-group">
-                                                <input type="text" name="title" value="<?php echo $row['title']; ?>" class="form-control" placeholder="Tarea" autofocus>
-                                            </div>
-                                            <div class="form-group">
-                                                <textarea name="description" rows="2" class="form-control" placeholder="Descripción"><?php echo $row['description']; ?></textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="edit-etiqueta">Etiqueta</label>
-                                                <select class="form-control" id="edit-etiqueta" name="etiqueta">
-                                                    <option value="Trabajo">Trabajo</option>
-                                                    <option value="Trabajo">Estudios</option>
-                                                    <option value="Casa">Hogar</option>
-                                                    <option value="Familia">Familia</option>
-                                                    <option value="Ocio">Ocio</option>
-                                                    <option value="Otros">Otros</option>
-                                                </select>
-                                            </div>
-                                            <button class="btn btn-primary btn-block" name="update">Actualizar</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- MODAL PARA MARCAR TAREA COMO COMPLETADA -->
-                        <div class="modal fade" id="completadoModal<?php echo $row['id_tarea']; ?>" tabindex="-1" role="dialog" aria-labelledby="completadoModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="completadoModalLabel">Marcar como completado</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        ¿Estás seguro de que deseas marcar esta tarea como completada?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                        <form action="check.php?id=<?php echo $row['id_tarea']; ?>" method="POST">
-                                            <button type="submit" class="btn btn-success" name="done">Marcar como completado</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- MODAL PARA ELIMINAR TAREA -->
-                        <div class="modal fade" id="deleteModal<?php echo $row['id_tarea']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?php echo $row['id_tarea']; ?>" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="deleteModalLabel<?php echo $row['id_tarea']; ?>">Eliminar tarea</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        ¿Estás seguro de que deseas eliminar esta tarea?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                        <a href="delete.php?id=<?php echo $row['id_tarea']; ?>" class="btn btn-danger">Eliminar</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="card-header bg-dark text-white text-align:center">
                             <h3>Contacto</h3>
@@ -231,40 +151,12 @@
                                 <a href="tel:+34918109200">+34 918 109 200</a>
                             </p>
                             <p><i class="fa-solid fa-envelope"></i> Email:
-                            <a href="mailto:info@UAX.es">info@UAX.es</a>
-                                
+                                <a href="mailto:info@UAX.es">info@UAX.es</a>
                             </p>
                             <p><i class="fa-solid fa-location-dot"></i> Ubicación:</a></p>
                             <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3" style="height: 300px;">
                                 <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>
-                                <script>
-                                    (function() {
-                                        var setting = {
-                                            "height": 300,
-                                            "width": 803,
-                                            "zoom": 17,
-                                            "queryString": "UAX - Universidad Alfonso X El Sabio, Avenida Universidad, Villanueva de la Cañada, España",
-                                            "place_id": "ChIJmaRM-nuZQQ0R-KGION5XMgw",
-                                            "satellite": true,
-                                            "centerCoord": [40.450793363539475, -3.9872344999999987],
-                                            "cid": "0xc3257de3888a1f8",
-                                            "lang": "es",
-                                            "cityUrl": "/spain/madrid",
-                                            "cityAnchorText": "Mapa de Madrid, Comunidad de Madrid, España",
-                                            "id": "map-9cd199b9cc5410cd3b1ad21cab2e54d3",
-                                            "embed_id": "937956"
-                                        };
-                                        var d = document;
-                                        var s = d.createElement('script');
-                                        s.src = 'https://1map.com/js/script-for-user.js?embed_id=937956';
-                                        s.async = true;
-                                        s.onload = function(e) {
-                                            window.OneMap.initMap(setting);
-                                        };
-                                        var to = d.getElementsByTagName('script')[0];
-                                        to.parentNode.insertBefore(s, to);
-                                    })();
-                                </script>
+                                
                                 <a href="https://1map.com/es/map-embed">1 Map</a>
                             </div>
 
@@ -273,16 +165,13 @@
                             <footer class="footer" style="text-align: center;">
                                 <p>&copy; Task-Management 2022-2023</p>
                             </footer>
-
-
                         </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-
     <script src="./search.js"></script>
+    <script src="./google-maps.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
