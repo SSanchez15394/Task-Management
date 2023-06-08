@@ -222,17 +222,18 @@
 
 					<div id="content">
 						<div class="welcome-section mt-2 ml-3">
-							<h1 class="ml-1"><strong>Bienvenido a Task-Management</strong></h1><p></p>
-								<h2>El gestor de tareas web para todo el mundo</h2><br>
+							<h1 class="ml-1"><strong>Bienvenido a Task-Management</strong></h1>
+							<p></p>
+							<h2>El gestor de tareas web para todo el mundo</h2><br>
 
 							<h3>Todas tus tareas en un mismo sitio. <br>
 								En la organización está el éxito.</h3> <br>
-							<h4>Task-Management se creó para poder dar al usuario <br> de una manera fácil, 
-								cómoda y sencilla, una forma de poder añadir y organizar mejor su agenda teniendo un total control de sus tareas de una manera
-								muy sencilla.</h4>
+							<h3>Task-Management se creó para poder dar al usuario <br> de una manera fácil,
+								cómoda y sencilla, una forma de poder añadir y organizar mejor su agenda teniendo <br> un total control de sus tareas de una manera
+								muy sencilla.</h3>
 							<p>
-							<h4>Con una interfaz amigable, esta web está pensada para personas menos habituadas con el mundo tecnológico, que no quieran complejas maneras de edición y que al final no les guste la aplicación
-								debido a su compleiidad.</h4>
+							<h3>Con una interfaz amigable, esta web está pensada <br> para personas menos habituadas con el mundo <br> tecnológico, que no quieran complejas maneras de edición y que al final no les guste la aplicación
+								debido a su compleiidad.</h3>
 						</div>
 					</div><br>
 					<footer class="footer">

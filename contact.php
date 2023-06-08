@@ -225,11 +225,49 @@
                             <h3>Contacto</h3>
                         </div>
                         <div class="card-body">
-                            <h6>Datos de contacto</h6>
+                            <h5>Datos de contacto</h5>
                             <p></p><i class="fa-regular fa-calendar-days"></i> Horario: Lunes a viernes: 9:00 – 18:00 h</p>
-                            <p><i class="fa-solid fa-phone"></i> Teléfono
+                            <p><i class="fa-solid fa-phone"></i>Teléfono
                                 <a href="tel:+34918109200">+34 918 109 200</a>
-                            <p><i class="fa-solid fa-location-dot"></i><a href="https://goo.gl/maps/7kCua5R3KrZgWCaaA" target="_blank"> Ubicación</a></p>
+                            </p>
+                            <p><i class="fa-solid fa-envelope"></i> Email
+                            <a href="mailto:info@UAX.es">info@UAX.es</a>
+                                
+                            </p>
+                            <p><i class="fa-solid fa-location-dot"></i> Ubicación</a></p>
+                            <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3" style="height: 300px;">
+                                <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>
+                                <script>
+                                    (function() {
+                                        var setting = {
+                                            "height": 300,
+                                            "width": 803,
+                                            "zoom": 17,
+                                            "queryString": "UAX - Universidad Alfonso X El Sabio, Avenida Universidad, Villanueva de la Cañada, España",
+                                            "place_id": "ChIJmaRM-nuZQQ0R-KGION5XMgw",
+                                            "satellite": true,
+                                            "centerCoord": [40.450793363539475, -3.9872344999999987],
+                                            "cid": "0xc3257de3888a1f8",
+                                            "lang": "es",
+                                            "cityUrl": "/spain/madrid",
+                                            "cityAnchorText": "Mapa de Madrid, Comunidad de Madrid, España",
+                                            "id": "map-9cd199b9cc5410cd3b1ad21cab2e54d3",
+                                            "embed_id": "937956"
+                                        };
+                                        var d = document;
+                                        var s = d.createElement('script');
+                                        s.src = 'https://1map.com/js/script-for-user.js?embed_id=937956';
+                                        s.async = true;
+                                        s.onload = function(e) {
+                                            window.OneMap.initMap(setting);
+                                        };
+                                        var to = d.getElementsByTagName('script')[0];
+                                        to.parentNode.insertBefore(s, to);
+                                    })();
+                                </script>
+                                <a href="https://1map.com/es/map-embed">1 Map</a>
+                            </div>
+
                         </div>
                         <div class="card-footer">
                             <footer class="footer" style="text-align: center;">
