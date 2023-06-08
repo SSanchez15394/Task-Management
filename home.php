@@ -95,7 +95,6 @@
 							<h1 class="ml-1"><strong>Bienvenido a Task-Management</strong></h1>
 							<p></p>
 							<h2>El gestor de tareas web para todo el mundo</h2><br>
-
 							<h3>Todas tus tareas en un mismo sitio. <br>
 								En la organización está el éxito.</h3> <br>
 							<h3>Task-Management se creó para poder dar al usuario <br> de una manera fácil,
@@ -114,14 +113,10 @@
 			</div>
 		</div>
 	</div>
-	</div>
-	</div>
-	</div>
-
-	<script src="./search.js"></script>
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 </body>
+<script src="./search.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 
 </html>
