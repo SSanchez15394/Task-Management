@@ -1,5 +1,4 @@
 <?php include("./database/db.php") ?>
-<?php include("includes/header.php") ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -110,52 +109,8 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Modal para añadir nueva tarea -->
-                <button id="añadirTarea" class="btn btn-primary mt-4" data-toggle="modal" data-target="#addTaskModal"><i class="fa-solid fa-circle-plus"></i> Añadir nueva tarea</button>
-                <div class="modal fade" id="addTaskModal" tabindex="-1" role="dialog" aria-labelledby="addTaskModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header bg-info">
-                                <h2 class="modal-title text-dark" id="addTaskModalLabel">Añadir nueva tarea</h2>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <!-- Formulario para procesar los datos -->
-                                <form method="POST" action="tareas.php">
-                                    <div class="form-group text-dark">
-                                        <h5><label for="tarea">Tarea:</label></h5>
-                                        <input type="text" class="form-control" id="tarea" name="tarea" placeholder="Tarea">
-                                    </div>
-                                    <div class="form-group text-dark">
-                                        <h5><label for="descripcion">Descripción:</label></h5>
-                                        <h5><textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" maxlength="150"></textarea>
-                                    </div>
-                                    <div class="form-group text-dark">
-                                        <h5><label for="etiqueta">Etiqueta:</label></h5>
-                                        <select class="form-control" id="etiqueta" name="etiqueta">
-                                            <option value="Trabajo">Trabajo</option>
-                                            <option value="Estudios">Estudios</option>
-                                            <option value="Casa">Hogar</option>
-                                            <option value="Familia">Familia</option>
-                                            <option value="Ocio">Ocio</option>
-                                            <option value="Otros">Otros</option>
-                                        </select>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary" name="submit">Guardar</button>
-                                </form>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-
+                <?php include('./modals/nueva-tarea.php') ?>
                 <?php include('./save.php') ?>
-
             </div>
             <div class="col-9 col-content mt-5">
                 <div class="col-md-8">
@@ -187,73 +142,15 @@
                                         <td class="file"><?php echo $row['etiqueta']; ?></td>
                                         <!-- Fila donde estarán los botones de opciones -->
                                         <td class="file">
-
-                                            <!-- MODAL PARA EDITAR TAREA -->
-                                            <div class="modal fade" id="editModal<?php echo $row['id_tarea']; ?>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel<?php echo $row['id_tarea']; ?>" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header bg-info">
-                                                            <h2 class="modal-title" id="editModalLabel<?php echo $row['id_tarea']; ?>">Editar tarea</h2>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form action="edit.php?id=<?php echo $row['id_tarea']; ?>" method="POST">
-                                                                <div class="form-group">
-                                                                    <input type="text" name="title" value="<?php echo $row['title']; ?>" class="form-control" placeholder="Tarea" autofocus>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <textarea name="description" rows="2" class="form-control" placeholder="Descripción"><?php echo $row['description']; ?></textarea>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label for="edit-etiqueta">Etiqueta</label>
-                                                                    <select class="form-control" id="edit-etiqueta" name="etiqueta">
-                                                                        <option value="Trabajo">Trabajo</option>
-                                                                        <option value="Estudios">Estudios</option>
-                                                                        <option value="Casa">Casa</option>
-                                                                        <option value="Familia">Familia</option>
-                                                                        <option value="Ocio">Ocio</option>
-                                                                        <option value="Otros">Otros</option>
-                                                                    </select>
-                                                                </div>
-                                                                <button class="btn btn-primary btn-block" name="update">Actualizar</button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <?php include('./modals/editar-tarea.php') ?>
                                             <div class="d-flex justify-content-center align-center">
                                                 <button type="button" class="btn btn-info mr-1" data-toggle="modal" data-target="#editModal<?php echo $row['id_tarea']; ?>">
                                                     <i class="fa fa-marker"></i>
                                                 </button>
-
+                                                <?php include('./modals/tarea-completada.php') ?>
                                                 <button type="button" class="btn btn-success mr-1 marcar-completado" data-toggle="modal" data-target="#completadoModal<?php echo $row['id_tarea']; ?>">
                                                     <i class="fas fa-check"></i>
                                                 </button>
-
-                                                <!-- MODAL PARA MARCAR TAREA COMO COMPLETADA -->
-                                                <div class="modal fade" id="completadoModal<?php echo $row['id_tarea']; ?>" tabindex="-1" role="dialog" aria-labelledby="completadoModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header bg-success">
-                                                                <h2 class="modal-title" id="completadoModalLabel">Marcar como completado</h2>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <h5>¿Estás seguro de que deseas marcar esta tarea como completada?</h5>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                                <form action="check.php?id=<?php echo $row['id_tarea']; ?>" method="POST">
-                                                                    <button type="submit" class="btn btn-success" name="done">Marcar como completado</button>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
 
 
                                                 <!-- MODAL PARA ELIMINAR TAREA -->
@@ -300,6 +197,5 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 
 </html>
