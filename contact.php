@@ -41,9 +41,6 @@
                     </li>
                 </ul>
             </div>
-
-
-
             <div class="dropdown mr-2">
                 <a class="nav-link dropdown-toggle mr-5" href="#" role="button" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <strong>Perfil</strong>
@@ -56,8 +53,6 @@
                 </div>
             </div>
         </nav>
-
-
         <div class="row">
             <div class="col-3 col-sidebar mt-4">
                 <ul class="nav flex-column">
@@ -80,11 +75,7 @@
                         $query = "SELECT * FROM tareas";
                         $resultado = mysqli_query($conn, $query);
                         ?>
-
                         <h3 class="text-center text-dark"><?php echo $resultado->num_rows; ?></h3>
-                        <h3 class="text-center">
-
-                        </h3>
                     </div>
                     <div class="profile dropdown">
                         <div class="dropdown-menu" aria-labelledby="profileDropdown">
@@ -92,55 +83,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Modal para añadir nueva tarea -->
-                <button id="añadirTarea" class="btn btn-primary mt-4" data-toggle="modal" data-target="#addTaskModal"><i class="fa-solid fa-circle-plus"></i> Añadir nueva tarea</button>
-                <div class="modal fade" id="addTaskModal" tabindex="-1" role="dialog" aria-labelledby="addTaskModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header bg-info">
-                                <h2 class="modal-title text-dark" id="addTaskModalLabel">Añadir nueva tarea</h2>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <!-- Formulario para procesar los datos -->
-                                <form method="POST" action="tareas.php">
-                                    <div class="form-group text-dark">
-                                        <h5><label for="tarea">Tarea:</label></h5>
-                                        <input type="text" class="form-control" id="tarea" name="tarea" placeholder="Tarea">
-                                    </div>
-                                    <div class="form-group text-dark">
-                                        <h5><label for="descripcion">Descripción:</label></h5>
-                                        <h5><textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" maxlength="150"></textarea>
-                                    </div>
-                                    <div class="form-group text-dark">
-                                        <h5><label for="etiqueta">Etiqueta:</label></h5>
-                                        <select class="form-control" id="etiqueta" name="etiqueta">
-                                            <option value="Trabajo">Trabajo</option>
-                                            <option value="Estudios">Estudios</option>
-                                            <option value="Casa">Hogar</option>
-                                            <option value="Familia">Familia</option>
-                                            <option value="Ocio">Ocio</option>
-                                            <option value="Otros">Otros</option>
-                                        </select>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary" name="submit">Guardar</button>
-                                </form>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
+                <?php include('./modals/nueva-tarea.php') ?>
                 <?php include('./save.php') ?>
-
             </div>
             <div class="col-9 col-content mt-5" style="align-items: center;">
                 <div class="col-md-8">
                     <table class="table table-bordered w-100">
-
                         <div class="card-header bg-dark text-white text-align:center">
                             <h3>Contacto</h3>
                         </div>
@@ -156,10 +104,8 @@
                             <p><i class="fa-solid fa-location-dot"></i> Ubicación:</a></p>
                             <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3" style="height: 300px;">
                                 <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>
-                                
                                 <a href="https://1map.com/es/map-embed">1 Map</a>
                             </div>
-
                         </div>
                         <div class="card-footer">
                             <footer class="footer" style="text-align: center;">
@@ -174,7 +120,6 @@
     <script src="./google-maps.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 </body>
 
 </html>
