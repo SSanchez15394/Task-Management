@@ -18,16 +18,13 @@
 </head>
 
 <body>
-
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<a href="#" class="navbar-brand font-weight-bold">
 			Task-Management <i class="fas fa-check-double"></i>
 		</a>
-
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-
 		<div class="collapse navbar-collapse fix" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto" id="searchResults">
 				<li class="nav-item active ml-1">
@@ -43,7 +40,6 @@
 				</li>
 			</ul>
 		</div>
-
 		<div class="dropdown mr-2">
 			<a class="nav-link dropdown-toggle mr-5" href="#" role="button" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<strong>Perfil</strong>
@@ -56,8 +52,6 @@
 			</div>
 		</div>
 	</nav>
-
-
 	<div class="row">
 		<div class="col-3 col-sidebar mt-4">
 			<ul class="nav flex-column">
@@ -80,146 +74,22 @@
 					$query = "SELECT * FROM tareas";
 					$resultado = mysqli_query($conn, $query);
 					?>
-
 					<h3 class="text-center text-dark"><?php echo $resultado->num_rows; ?></h3>
 					<h3 class="text-center">
-
 					</h3>
 				</div>
 				<div class="profile dropdown">
 					<div class="dropdown-menu" aria-labelledby="profileDropdown">
 						<a class="dropdown-item" href="#">Cerrar sesión</a>
-
 					</div>
 				</div>
 			</div>
-			<!-- Modal para añadir nueva tarea -->
-			<button class="btn btn-primary mt-4" data-toggle="modal" data-target="#addTaskModal"><i class="fa-solid fa-circle-plus"></i> Añadir nueva tarea</button>
-			<div class="modal fade" id="addTaskModal" tabindex="-1" role="dialog" aria-labelledby="addTaskModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header bg-info">
-
-							<h1 class="modal-title text-dark" id="addTaskModalLabel">Añadir nueva tarea</h1>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<!-- Formulario para procesar los datos -->
-							<form method="POST" action="home.php">
-								<div class="form-group text-dark">
-									<label for="tarea">Tarea</label>
-									<input type="text" class="form-control" id="tarea" name="tarea" placeholder="Tarea">
-								</div>
-								<div class="form-group text-dark">
-									<label for="descripcion">Descripción</label>
-									<textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción"></textarea>
-								</div>
-								<div class="form-group text-dark">
-									<label for="etiqueta">Etiqueta</label>
-									<select class="form-control" id="etiqueta" name="etiqueta">
-										<option value="Trabajo">Trabajo</option>
-										<option value="Trabajo">Estudios</option>
-										<option value="Casa">Hogar</option>
-										<option value="Familia">Familia</option>
-										<option value="Ocio">Ocio</option>
-										<option value="Otros">Otros</option>
-									</select>
-								</div>
-								<button type="submit" class="btn btn-primary" name="submit">Guardar</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-
+			<?php include('./modals/nueva-tarea.php') ?>
 			<?php include('./save.php') ?>
-
 		</div>
 		<div class="col-9 col-content mt-5">
 			<div class="col-md-8">
 				<table class="table table-bordered w-100">
-					<!-- MODAL PARA EDITAR TAREA -->
-					<div class="modal fade" id="editModal<?php echo $row['id_tarea']; ?>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel<?php echo $row['id_tarea']; ?>" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="editModalLabel<?php echo $row['id_tarea']; ?>">Editar tarea</h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<form action="edit.php?id=<?php echo $row['id_tarea']; ?>" method="POST">
-										<div class="form-group">
-											<input type="text" name="title" value="<?php echo $row['title']; ?>" class="form-control" placeholder="Tarea" autofocus>
-										</div>
-										<div class="form-group">
-											<textarea name="description" rows="2" class="form-control" placeholder="Descripción"><?php echo $row['description']; ?></textarea>
-										</div>
-										<div class="form-group">
-											<label for="edit-etiqueta">Etiqueta</label>
-											<select class="form-control" id="edit-etiqueta" name="etiqueta">
-												<option value="Trabajo">Trabajo</option>
-												<option value="Trabajo">Estudios</option>
-												<option value="Casa">Hogar</option>
-												<option value="Familia">Familia</option>
-												<option value="Ocio">Ocio</option>
-												<option value="Otros">Otros</option>
-											</select>
-										</div>
-										<button class="btn btn-primary btn-block" name="update">Actualizar</button>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- MODAL PARA MARCAR TAREA COMO COMPLETADA -->
-					<div class="modal fade" id="completadoModal<?php echo $row['id_tarea']; ?>" tabindex="-1" role="dialog" aria-labelledby="completadoModalLabel" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="completadoModalLabel">Marcar como completado</h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									¿Estás seguro de que deseas marcar esta tarea como completada?
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-									<form action="check.php?id=<?php echo $row['id_tarea']; ?>" method="POST">
-										<button type="submit" class="btn btn-success" name="done">Marcar como completado</button>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- MODAL PARA ELIMINAR TAREA -->
-					<div class="modal fade" id="deleteModal<?php echo $row['id_tarea']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?php echo $row['id_tarea']; ?>" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="deleteModalLabel<?php echo $row['id_tarea']; ?>">Eliminar tarea</h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									¿Estás seguro de que deseas eliminar esta tarea?
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-									<a href="delete.php?id=<?php echo $row['id_tarea']; ?>" class="btn btn-danger">Eliminar</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
 					<div id="content">
 						<div class="welcome-section mt-2 ml-3">
 							<h1 class="ml-1"><strong>Bienvenido a Task-Management</strong></h1>
