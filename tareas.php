@@ -16,12 +16,10 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <a href="./home.php" class="navbar-brand font-weight-bold">
             Task-Management <i class="fas fa-check-double"></i>
         </a>
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -53,8 +51,6 @@
             </div>
         </div>
     </nav>
-
-
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -72,8 +68,6 @@
                 </li>
             </ul>
         </div>
-
-
         <div class="row">
             <div class="col-3 col-sidebar mt-4">
                 <ul class="nav flex-column">
@@ -91,16 +85,13 @@
                     <div class="card-header bg-dark text-white">
                         Pendientes:
                     </div>
-
                     <div class="card-body">
                         <?php
                         $query = "SELECT * FROM tareas";
                         $resultado = mysqli_query($conn, $query);
                         ?>
-
                         <h3 class="text-center text-dark"><?php echo $resultado->num_rows; ?></h3>
                         <h3 class="text-center">
-
                         </h3>
                     </div>
                     <div class="profile dropdown">
@@ -157,9 +148,8 @@
             </div>
         </div>
     </div>
-    <script src="./search.js"></script>
-
 </body>
+<script src="./scripts/search.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 

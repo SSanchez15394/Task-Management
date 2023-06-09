@@ -13,10 +13,7 @@
 </head>
 
 <body>
-    
-
     <div class="container">
-        
         <div class="d-flex justify-content-center h-100">
             <div class="card">
                 <div class="card-header">
@@ -40,7 +37,9 @@
                             <button type="submit" name="submit" class="btn float-right login_btn" id="submit">Acceso</button>
                         </div>
                         <?php include('./includes/form-validation.php'); ?>
-                        <span class="error-message text-danger"><?php if (isset($errorMessage)) { echo $errorMessage;  } ?></span>
+                        <span class="error-message text-danger"><?php if (isset($errorMessage)) {
+                                                                    echo $errorMessage;
+                                                                } ?></span>
 
 
                     </form>
@@ -69,10 +68,9 @@
             </div>
         </div>
     </div>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-
 </body>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
 </html>
