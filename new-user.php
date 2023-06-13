@@ -51,7 +51,7 @@
                         <div class="card-footer">
                             <div class="d-flex justify-content-center links">
                                 ¿Ya tienes una cuenta?
-                                <a href="./login.php">Iniciar sesión</a>
+                                <a href="./index.php">Iniciar sesión</a>
                             </div>
 
                             <div class="or-line-container">
